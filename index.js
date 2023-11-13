@@ -13,10 +13,20 @@ app.get("/", (req, res) => {
 app.get("/deliveries", (req, res) => {
   const { status } = req.query;
 
+  // Return all if no specific status is requested
+  if (!status) {
+    return res.json({
+      in_progress_deliveries,
+      completed_deliveries,
+    });
+  }
+
   if (status === "in_progress") {
     res.json(in_progress_deliveries);
   } else if (status === "completed") {
     res.json(completed_deliveries);
+  } else if (status === "cancelled") {
+    res.json([]);
   } else {
     res.status(400).json({ error: "Invalid status" });
   }
