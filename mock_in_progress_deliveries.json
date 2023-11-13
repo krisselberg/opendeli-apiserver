@@ -1,0 +1,121 @@
+{
+  "id": "a3f68b2e-6b46-4e4b-9f53-19e91d2e9d08",
+  "order_id": "c4d2b4de-3f8b-441f-a5f4-37f9b65e1f17",
+  "courier_id": "b3107f69-768d-4c67-b5f2-5c4e5b0356b7",
+  "customer_id": "f4a2c2a1-3f8b-441f-a5f4-37f9b65e1f17",
+  "customer_name": "Alex Smith",
+  "merchant_id": "e4a2c2a1-3f8b-441f-a5f4-37f9b65e1f17",
+  "merchant_name": "Burger King",
+  "merchant_phone_number": "555-0199",
+  "status": "dropping_off",
+  "created_at": "2023-04-05T14:48:00Z",
+  "updated_at": "2023-04-05T15:48:00Z",
+  "currency": "USD",
+  "customer_notes_for_courier": [],
+  "courier_notes_for_customer": ["Hot food", "Handle with care"],
+  "courier_tips_for_merchant": [
+    {
+      "courier_id": "c2d3e4f5-g6h7-i8j9-k10l-mn11o12p13q4",
+      "tip_text": "Merchant is faster with pre-orders, recommend contacting ahead of time.",
+      "upvotes": 3
+    },
+    {
+      "courier_id": "d3e4f5g6-h7i8-j9k1-lm2n-o12p34q56r78",
+      "tip_text": "Parking available behind the store after 6 PM.",
+      "upvotes": 8
+    }
+  ],
+  "pickup": {
+    "location": {
+      "addressLine1": "123 Main St",
+      "addressLine2": "Apt 4",
+      "locality": "Springfield",
+      "postalCode": "62701",
+      "countryCode": "US"
+    },
+    "coordinates": {
+      "latitude": 39.7817,
+      "longitude": -89.6501
+    }
+  },
+  "dropoff": {
+    "location": {
+      "addressLine1": "456 Elm St",
+      "addressLine2": "",
+      "locality": "Springfield",
+      "postalCode": "62704",
+      "countryCode": "US"
+    },
+    "coordinates": {
+      "latitude": 39.7817,
+      "longitude": -89.6202
+    }
+  },
+  "items": [
+    {
+      "name": "Cheeseburger",
+      "quantity": 2,
+      "size": "medium",
+      "dimensions": {
+        "length": 10,
+        "width": 6,
+        "height": 4,
+        "unit": "cm"
+      },
+      "price": 15,
+      "must_be_upright": false,
+      "weight": 500
+    },
+    {
+      "name": "Fries",
+      "quantity": 1,
+      "size": "small",
+      "dimensions": {
+        "length": 10,
+        "width": 6,
+        "height": 4,
+        "unit": "cm"
+      },
+      "price": 5,
+      "must_be_upright": false,
+      "weight": 200
+    },
+    {
+      "name": "Soda",
+      "quantity": 1,
+      "size": "small",
+      "dimensions": {
+        "length": 10,
+        "width": 6,
+        "height": 4,
+        "unit": "cm"
+      },
+      "price": 5,
+      "must_be_upright": true,
+      "weight": 200
+    }
+  ],
+  "undeliverable_action": "",
+  "undeliverable_reason": "",
+  "return": {
+    "location": {
+      "addressLine1": "123 Main St",
+      "addressLine2": "Apt 4",
+      "locality": "Springfield",
+      "postalCode": "62701",
+      "countryCode": "US"
+    },
+    "coordinates": {
+      "latitude": 39.7817,
+      "longitude": -89.6501
+    }
+  },
+  "income": {
+    "currency": "USD",
+    "total_charge": "30",
+    "fees": "5",
+    "total": "25",
+    "pay": "20",
+    "tips": "5"
+  }
+}
