@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the OpenDeli API!");
 });
 
-app.get("/couriers/deliveries", (req, res) => {
+app.get("/deliveries", (req, res) => {
   const { status } = req.query;
 
   if (status === "in_progress") {
