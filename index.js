@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Mock data array
 const in_progress_deliveries = require("./mock_in_progress_deliveries.json");
@@ -13,6 +13,8 @@ app.get("/couriers/deliveries", (req, res) => {
     res.json(in_progress_deliveries);
   } else if (status === "completed") {
     res.json(completed_deliveries);
+  } else {
+    res.status(400).json({ error: "Invalid status" });
   }
 });
 
