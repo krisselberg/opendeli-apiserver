@@ -6,6 +6,10 @@ const port = process.env.PORT || 3000;
 const in_progress_deliveries = require("./mock_in_progress_deliveries.json");
 const completed_deliveries = require("./mock_completed_deliveries.json");
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the OpenDeli API!");
+});
+
 app.get("/couriers/deliveries", (req, res) => {
   const { status } = req.query;
 
