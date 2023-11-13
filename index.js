@@ -11,25 +11,41 @@ app.get("/", (req, res) => {
 });
 
 app.get("/deliveries", (req, res) => {
-  const { status } = req.query;
+  const { page = 1, perPage = 10, status } = req.query;
 
-  // Return all if no specific status is requested
-  if (!status) {
-    return res.json({
-      in_progress_deliveries,
-      completed_deliveries,
-    });
-  }
-
+  let deliveries;
   if (status === "in_progress") {
-    res.json(in_progress_deliveries);
+    deliveries = in_progress_deliveries;
   } else if (status === "completed") {
-    res.json(completed_deliveries);
+    deliveries = completed_deliveries;
   } else if (status === "cancelled") {
-    res.json([]);
+    deliveries = [];
+  } else if (status) {
+    return res.status(400).json({ error: "Invalid status" });
   } else {
-    res.status(400).json({ error: "Invalid status" });
+    deliveries = [...in_progress_deliveries, ...completed_deliveries];
   }
+
+  // Pagination logic
+  const pageInt = parseInt(page, 10);
+  const perPageInt = parseInt(perPage, 10);
+  const total = deliveries.length;
+  const paginatedDeliveries = deliveries.slice(
+    (pageInt - 1) * perPageInt,
+    pageInt * perPageInt
+  );
+
+  res.json({
+    deliveries: paginatedDeliveries,
+    pagination: {
+      total,
+      lastPage: Math.ceil(total / perPageInt),
+      currentPage: pageInt,
+      perPage: perPageInt,
+      prevPage: pageInt > 1 ? pageInt - 1 : null,
+      nextPage: total > pageInt * perPageInt ? pageInt + 1 : null,
+    },
+  });
 });
 
 app.listen(port, () => {
